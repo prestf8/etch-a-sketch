@@ -67,8 +67,24 @@ body {
   margin: 3rem 1rem;
 }
 
-.dimensions-label {
-  font-size: 1.3rem;
+#dimensions-container {
+  height: 70px;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+#dimensions-label {
+  font-size: 1.45rem;
+  color: white;
+  font-weight: bold;
+}
+#dimensions-range {
+  display: block;
+  width: 100%;
 }
 
 .button {

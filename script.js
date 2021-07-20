@@ -44,6 +44,7 @@ function initiateClearButton() {
 
 function updateGrid(dim) {
   resetGrid();
+  updateDimLabel(dim);
 
   document.documentElement.style.setProperty("--dim", dim);
 
@@ -63,6 +64,11 @@ function updateGrid(dim) {
 function resetGrid() {
   const formerGridRows = [...container.getElementsByClassName("grid-row")];
   formerGridRows.forEach((gridRow) => container.removeChild(gridRow));
+}
+
+function updateDimLabel(dim) {
+  const dimensionsLabelSize = document.getElementById("dimensions");
+  dimensionsLabelSize.textContent = `${dim} x ${dim}`;
 }
 
 function initiateGridSquare(gridSquare) {
