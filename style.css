@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 :root {
+  --size-grid-container: 600px;
 }
 
 *,
@@ -36,8 +37,13 @@ html {
 #controls {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin: 3rem 1rem;
+}
+
+.dimensions-label {
+  font-size: 1.3rem;
 }
 
 .button {
@@ -48,10 +54,23 @@ html {
 }
 
 #container {
-  border: 5px solid black;
-  width: 600px;
-  height: 600px;
+  width: var(--size-grid-container);
+  height: var(--size-grid-container);
   margin: 2rem auto;
+  background: purple;
+}
+
+.grid-square {
+  width: calc(var(--size-grid-container) / 16);
+  height: calc(var(--size-grid-container) / 16);
+  border: 1px solid black;
+}
+
+.grid-row {
+  height: calc((var(--size-grid-container) / 16));
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 @media screen and (min-width: 475px) {
