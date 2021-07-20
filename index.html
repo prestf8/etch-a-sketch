@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -15,6 +15,18 @@
         <p>Built by <a href="https://github.com/prestf8" target="_blank">prestf8</a></p>
         <h1 id="title">Etch-A-Sketch</h1>
     </header>
+    <main id="main">
+        <section id="controls">
+            <input id="dimensions" type="range">
+            <button id="black" class="button button-fill">
+                Black
+            </button>
+            <button id="random" class="button button-fill">Random</button>
+            <button id="eraser" class="button button-fill">Eraser</button>
+            <button id="clear" class="button">Clear</button>
+        </section>
+        <div id="container"></div>
+    </main>
 
 </body>
 
