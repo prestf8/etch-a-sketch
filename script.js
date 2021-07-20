@@ -37,6 +37,21 @@ function resetGrid(container) {
 
 function initiateGridSquare(gridSquare) {
   gridSquare.addEventListener("mouseenter", function (e) {
-    e.target.style.backgroundColor = "black";
+    const gridSquareStyle = e.target.style;
+    if (color === "random") {
+      gridSquareStyle.backgroundColor = randomColor();
+    } else if (color === "black") {
+      gridSquareStyle.backgroundColor = "black";
+    } else {
+      gridSquareStyle.backgroundColor = "white";
+    }
   });
+}
+
+function randomColor() {
+  const randomRed = Math.random() * 255 + 1;
+  const randomGreen = Math.random() * 255 + 1;
+  const randomBlue = Math.random() * 255 + 1;
+  const opacity = Math.random() * 10;
+  return `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${opacity})`;
 }
