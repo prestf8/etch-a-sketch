@@ -1,6 +1,9 @@
+const container = document.getElementById("container");
+
 let color = "black";
 
 initiateFillButtons();
+initiateClearButton();
 updateGrid(16);
 
 function initiateFillButtons() {
@@ -14,9 +17,18 @@ function initiateFillButtons() {
   );
 }
 
+function initiateClearButton() {
+  const clearButton = document.getElementById("clear");
+  clearButton.addEventListener("click", function () {
+    const gridSquares = [...container.getElementsByClassName("grid-square")];
+    gridSquares.forEach(
+      (gridSquare) => (gridSquare.style.backgroundColor = "white")
+    );
+  });
+}
+
 function updateGrid(dim) {
-  const container = document.getElementById("container");
-  resetGrid(container);
+  resetGrid();
   for (let r = 0; r < dim; r++) {
     let gridRow = document.createElement("div");
     gridRow.classList.add("grid-row");
@@ -30,7 +42,7 @@ function updateGrid(dim) {
   }
 }
 
-function resetGrid(container) {
+function resetGrid() {
   const oldGridSquares = [...container.getElementsByClassName("grid-square")];
   oldGridSquares.forEach((gridSquare) => container.removeChild(gridSquare));
 }
@@ -53,5 +65,5 @@ function randomColor() {
   const randomGreen = Math.random() * 255 + 1;
   const randomBlue = Math.random() * 255 + 1;
   const opacity = Math.random() * 10;
-  return `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${opacity})`;
+  return `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, ${opacity})`; // random rgb values and random opacity
 }
