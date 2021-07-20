@@ -54,6 +54,10 @@ html {
   font-size: 1.8rem;
 }
 
+.selected-button-fill {
+  box-shadow: 0px 0px 3px 2px gold;
+}
+
 #container {
   width: var(--size-grid-container);
   height: var(--size-grid-container);

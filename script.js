@@ -18,11 +18,18 @@ function initiateFillButtons() {
   // spread operator used to ensure that 'fillButtons' is an actual array
   const fillButtons = [...document.getElementsByClassName("button-fill")];
 
-  fillButtons.forEach((fillButton) =>
+  fillButtons.forEach((fillButton) => {
+    console.log(fillButton);
     fillButton.addEventListener("click", function (e) {
       color = e.target.id;
-    })
-  );
+
+      fillButtons.forEach((fillButton) =>
+        fillButton.classList.remove("selected-button-fill")
+      );
+
+      e.target.classList.add("selected-button-fill");
+    });
+  });
 }
 
 function initiateClearButton() {
