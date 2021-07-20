@@ -20,13 +20,50 @@ html {
 #header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 1rem;
+  padding: 0.9rem;
   background-color: rgba(255, 0, 0, 0.3);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 #title {
   font-family: "Encode Sans SC", sans-serif;
-  font-size: 4rem;
+  font-size: 3.8rem;
+  white-space: pre;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem 1rem;
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+  margin: 1rem;
+  font-size: 1.8rem;
+}
+
+#container {
+  border: 5px solid black;
+  width: 600px;
+  height: 600px;
+  margin: 2rem auto;
+}
+
+@media screen and (min-width: 475px) {
+  html {
+    font-size: 63%;
+  }
+  .button {
+    width: 150px;
+  }
+}
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 65%;
+  }
 }
