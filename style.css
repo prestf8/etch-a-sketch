@@ -4,6 +4,8 @@
 :root {
   --size-grid-container: 600px;
   --dim: 16;
+  --color-coral-red: #f93943;
+  --color-viking: #7eb2dd;
 }
 
 *,
@@ -19,13 +21,22 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
+body {
+  background-color: #c73e1d;
+  background-image: linear-gradient(
+    315deg,
+    #c73e1d 0%,
+    #a23b72 37%,
+    #2e86ab 100%
+  );
+}
+
 #header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   padding: 0.9rem;
-  background-color: rgba(255, 0, 0, 0.3);
   font-size: 1.4rem;
 }
 
@@ -33,6 +44,8 @@ html {
   font-family: "Encode Sans SC", sans-serif;
   font-size: 3.8rem;
   white-space: pre;
+  color: white;
+  text-shadow: 3px 3px 5px black;
 }
 
 #controls {
