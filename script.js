@@ -2,9 +2,17 @@ const container = document.getElementById("container");
 
 let color = "black";
 
+initiateDimensionsRange();
 initiateFillButtons();
 initiateClearButton();
 updateGrid(16);
+
+function initiateDimensionsRange() {
+  const dimensionsRange = document.getElementById("dimensions-range");
+  dimensionsRange.addEventListener("change", function (e) {
+    updateGrid(parseInt(e.target.value));
+  });
+}
 
 function initiateFillButtons() {
   // spread operator used to ensure that 'fillButtons' is an actual array
@@ -29,6 +37,9 @@ function initiateClearButton() {
 
 function updateGrid(dim) {
   resetGrid();
+
+  document.documentElement.style.setProperty("--dim", dim);
+
   for (let r = 0; r < dim; r++) {
     let gridRow = document.createElement("div");
     gridRow.classList.add("grid-row");
@@ -43,8 +54,8 @@ function updateGrid(dim) {
 }
 
 function resetGrid() {
-  const oldGridSquares = [...container.getElementsByClassName("grid-square")];
-  oldGridSquares.forEach((gridSquare) => container.removeChild(gridSquare));
+  const formerGridRows = [...container.getElementsByClassName("grid-row")];
+  formerGridRows.forEach((gridRow) => container.removeChild(gridRow));
 }
 
 function initiateGridSquare(gridSquare) {

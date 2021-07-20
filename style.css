@@ -3,6 +3,7 @@
 
 :root {
   --size-grid-container: 600px;
+  --dim: 16;
 }
 
 *,
@@ -60,13 +61,13 @@ html {
 }
 
 .grid-square {
-  width: calc(var(--size-grid-container) / 16);
-  height: calc(var(--size-grid-container) / 16);
+  width: calc(var(--size-grid-container) / var(--dim));
+  height: calc(var(--size-grid-container) / var(--dim));
   border: 1px solid black;
 }
 
 .grid-row {
-  height: calc((var(--size-grid-container) / 16));
+  height: calc((var(--size-grid-container) / var(--dim)));
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
