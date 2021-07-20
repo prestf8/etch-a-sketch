@@ -1,6 +1,8 @@
 const container = document.getElementById("container");
+const fillButtons = [...document.getElementsByClassName("button-fill")];
+const customColor = document.getElementById("custom-color");
 
-let color = "black";
+let colorType = "black";
 
 initiateDimensionsRange();
 initiateFillButtons();
@@ -16,20 +18,29 @@ function initiateDimensionsRange() {
 
 function initiateFillButtons() {
   // spread operator used to ensure that 'fillButtons' is an actual array
-  const fillButtons = [...document.getElementsByClassName("button-fill")];
 
   fillButtons.forEach((fillButton) => {
-    console.log(fillButton);
     fillButton.addEventListener("click", function (e) {
-      color = e.target.id;
+      colorType = e.target.id;
 
-      fillButtons.forEach((fillButton) =>
-        fillButton.classList.remove("selected-button-fill")
-      );
+      removeSelected();
 
       e.target.classList.add("selected-button-fill");
     });
   });
+
+  customColor.addEventListener("change", function () {
+    colorType = "custom";
+    removeSelected();
+    customColor.classList.add("custom-color-selected");
+  });
+}
+
+function removeSelected() {
+  fillButtons.forEach((fillButton) =>
+    fillButton.classList.remove("selected-button-fill")
+  );
+  customColor.classList.remove("custom-color-selected");
 }
 
 function initiateClearButton() {
@@ -55,7 +66,7 @@ function updateGrid(dim) {
     for (let c = 0; c < dim; c++) {
       let gridSquare = document.createElement("div");
       gridSquare.classList.add("grid-square");
-      initiateGridSquare(gridSquare);
+      fillGridSquare(gridSquare);
       gridRow.appendChild(gridSquare);
     }
   }
@@ -71,15 +82,17 @@ function updateDimLabel(dim) {
   dimensionsLabelSize.textContent = `${dim} x ${dim}`;
 }
 
-function initiateGridSquare(gridSquare) {
+function fillGridSquare(gridSquare) {
   gridSquare.addEventListener("mouseenter", function (e) {
     const gridSquareStyle = e.target.style;
-    if (color === "random") {
+    if (colorType === "random") {
       gridSquareStyle.backgroundColor = randomColor();
-    } else if (color === "black") {
+    } else if (colorType === "black") {
       gridSquareStyle.backgroundColor = "black";
-    } else {
+    } else if (colorType === "eraser") {
       gridSquareStyle.backgroundColor = "white";
+    } else {
+      gridSquareStyle.backgroundColor = customColor.value;
     }
   });
 }

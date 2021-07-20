@@ -6,5 +6,6 @@
 - Options: Random, black
 - Change grid size (min: 2, max: 100)
 - Clear grid
+- ADDED: Custom Color
 
 ### Deployed at [https://prestf8.github.io/etch-a-sketch/](https://prestf8.github.io/etch-a-sketch/)
